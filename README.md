@@ -56,21 +56,21 @@ Then create your kendo grid and the drop down box should be good to go assuming 
 
 
 
-<ul>
-<li>dropOptions: *(required)*</li>
-<ul><li>Must be included in your config object.  Each object within dropOptions is the definition of a new option in the dropdown box.</li></ul>
-</ul>
 
-###title *(required)*
+####dropOptions: *(required)*
+Must be included in your config object.  Each object within dropOptions is the definition of a new option in the dropdown box.
+
+
+####title *(required)*
 The text of the drop down option
 
-###field *(required)*
+####field *(required)*
 The field which determines whether or not an option should be shown.  This is the field name within your Kendo Datasource and must be equal to true/false.  This is only necessary if you leave the default option of 'permissionSystem' as true.
 
-###action *(required)*
+####action *(required)*
 This is the function that should be called when the option is selected.
 
-###permissionSystem *(optional)*
+####permissionSystem *(optional)*
 By default this is set to true.  This is what allows you to present a potentially different list of options in each drop down box based on the kind of data within that particular record.  When this is set to true, you must have a field in your Kendo Datasource whose value must be equal to true/false.  When Kendo comes to a record where the field is true the corresponding option will be shown.  When a record's field is false, the option will not show.
 
 
