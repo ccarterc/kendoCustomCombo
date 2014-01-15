@@ -4,8 +4,7 @@ kendoCustomCombo
 An alternative to the Kendo Dropdown List
 
 ####Dependencies:
-Kendo UI
-jQuery
+Kendo UI, jQuery
 
 # What is it for?
 You may need a custom drop down box for your Kendo Grid.  This plugin allows you to provide a set of options within that drop down box.  Some of your Kendo Grid rows may need a set of options based on conditions within the data for each particular record.  This plugin has got you covered!

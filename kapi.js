@@ -104,19 +104,6 @@ var KAPI = (function(KAPI){
 			sortable: {
 				mode: "single",
 				allowUnsort: false
-			},
-			dataBound: PAPI.onDataBound,
-			columnResize: function(e) {
-				$('input[value="Save Settings"]').trigger('settingsNotificationAdded');
-			},
-			columnReorder: function(e) {
-				$('input[value="Save Settings"]').trigger('settingsNotificationAdded');
-			},
-			columnHide: function(e) {
-				$('input[value="Save Settings"]').trigger('settingsNotificationAdded');
-			},
-			columnShow: function(e) {
-				$('input[value="Save Settings"]').trigger('settingsNotificationAdded');
 			}
 		},
 		create: function(gridId, userGridConfig, userDataConfig, userSettings){
