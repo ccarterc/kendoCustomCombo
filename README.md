@@ -56,20 +56,25 @@ Then create your kendo grid and the drop down box should be good to go assuming 
 
 
 
-###dropOptions:
-Must be included in your config object.  Each object within dropOptions is the definition of a new option in the dropdown box.
+<ul>
+<li>dropOptions: *(required)*</li>
+<ul><li>Must be included in your config object.  Each object within dropOptions is the definition of a new option in the dropdown box.</li></ul>
+</ul>
 
-###title
+###title *(required)*
 The text of the drop down option
 
-###field
-The field which determines whether or not an option should be shown.  This is the field within your Kendo Datasource and must be equal to true/false.  This is only necessary if you leave the default option of 'permissionSystem' as true.  This is what allows you to present a potentially different list of options in each drop down box based on the kind of data within that particular record.
+###field *(required)*
+The field which determines whether or not an option should be shown.  This is the field name within your Kendo Datasource and must be equal to true/false.  This is only necessary if you leave the default option of 'permissionSystem' as true.
 
-###action
+###action *(required)*
 This is the function that should be called when the option is selected.
 
+###permissionSystem *(optional)*
+By default this is set to true.  This is what allows you to present a potentially different list of options in each drop down box based on the kind of data within that particular record.  When this is set to true, you must have a field in your Kendo Datasource whose value must be equal to true/false.  When Kendo comes to a record where the field is true the corresponding option will be shown.  When a record's field is false, the option will not show.
 
-The basic implementation does not come with style beyond the basic sizing/positioning which is handled at the time of clicking the drop down box.  You will need to provie those yourself.  The sample.html shows the two primary css selectors you will most likely want to use: .customDropDownOption & .dropDownSelector.
 
-s
+The basic implementation does not come with style beyond the basic sizing/positioning which is handled at the time of clicking the drop down box.  You will need to provide those yourself.  The sample.html shows the two primary css selectors you will most likely want to use: .customDropDownOption & .dropDownSelector.
+
+
 
