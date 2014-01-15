@@ -1,114 +1,4 @@
-<DOCTYPE html>
-<html>
-<head>
-<style>
-	.noOptions{
-		background-color:rgb(100,100,100) !important;
-	}
-</style>
-	<link href="../libraries/kendoui/styles/kendo.common.min.css" rel="stylesheet" />
-	<link href="../libraries/kendoui/styles/kendo.default.min.css" rel="stylesheet" />
-</head>
-<body>
-
-<div id="grid"></grid>
-
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="../libraries/kendoui/js/kendo.all.min.js"></script>
-<script src="products.js"></script>
-<script>
-
-var customActionConfig
-var columnsettings;
-var PAPI;
-var CustomActionBox;
-//KAPI
-
-function myOtherFunction(uid){
-	alert('myOtherFunc ' + uid);
-}
-function myPopFunction(uid){
-	alert(uid);
-}
-
-//permissionSystem determines whether conditions must be met in order to show an option
-//condition must be a true/false, but can be either boolean or string. the var being passed is the field name contained within the record
-customActionConfig = {
-	dropOptions: [
-		{
-			title: "popup",
-			field: "popupPermission",
-			action: 'myPopFunction'
-		},
-		{
-			title: "something else",
-			field: "somethingElsePermission",
-			action: 'myOtherFunction'
-		}
-	]
-};
-//how to use a string to make a function call which was defined in the global scope
-//window[btnCall]();
-
-columnsettings = [
-	"ProductName",
-	{
-		field: "UnitPrice",
-		title: "Unit Price",
-		format: "{0:c}",
-		width: "130px"
-	},
-	{
-		field: "UnitsInStock",
-		title: "Units In Stock",
-		width: "130px"
-	},
-	{
-		field: "Discontinued",
-		width: "130px"
-	},
-	{
-		field: "action",
-		title: "Action(s)",
-		width: "200px"
-	}
-];
-
-//App/page definition
-PAPI = (function(PAPI){
-	PAPI.init = function(){
-		CustomActionBox.init();
-		KAPI.grid.create('grid', PAPI.kapiConfig.grid, PAPI.kapiConfig.dataSource);
-		KAPI.grid.setData(0, products);
-		KAPI.grid.get(0).gridConfig.columns = columnsettings;
-		KAPI.grid.render(0);
-	};
-	PAPI.onDataBound = function(){
-	};
-	PAPI.kapiConfig = {
-		grid: {
-		},
-		dataSource: {
-			schema: {
-				model: {
-					fields: {
-						ProductName: { type: "string" },
-						UnitPrice: { type: "number" },
-						UnitsInStock: { type: "number" },
-						Discontinued: { type: "boolean" }
-					}
-				}
-			}
-		},
-		dataParser: function(data, gridIndex){
-		},
-		user: {}
-	};
-
-	return PAPI;
-}(PAPI || {}));
-
-CustomActionBox = (function(CAB){
+var CustomActionBox = (function(CAB){
 	var defaultActionConfig = {
 		enabled: true,
 		gridId: 'grid',
@@ -118,7 +8,6 @@ CustomActionBox = (function(CAB){
 		dropDownOptionAddClass: "miscTestClass",
 		noOptionsClass: "noOptions"
 	};
-	CAB.actionConfig = $.extend(true, {}, defaultActionConfig, customActionConfig);
 	var __columnsettings = [
 		{key: "filterable",	value: false},
 		{key: "sortable",	value: false},
@@ -126,7 +15,9 @@ CustomActionBox = (function(CAB){
 		{key: "template",	value: "<div class='dropDownSelector#:CustomActionBox.checkForOptions(kendo.toString(uid))#' style='position:relative;'>Action:</div>"}
 	];
 
-	CAB.init = function(){
+	CAB.init = function(customActionConfig){
+		CAB.actionConfig = $.extend(true, {}, defaultActionConfig, customActionConfig);
+
 		addConditionProperties();
 		addPrivateColumnSettings();
 		attachEventListeners();
@@ -248,14 +139,3 @@ CustomActionBox = (function(CAB){
 
 	return CAB;
 }(CustomActionBox || {}));
-
-$(document).ready(function(){
-	PAPI.init();
-});
-
-</script>
-
-<script src="kapi.js"></script>
-<!--<script src="customAction.js"></script>-->
-</body>
-</html>
