@@ -20,12 +20,12 @@ Simply instantiate the custom combo box by calling the init() and passing a conf
 			{
 				title: "popup",
 				field: "popupPermission",
-				action: 'myPopFunction'
+				action: myPopFunction
 			},
 			{
 				title: "something else",
 				field: "somethingElsePermission",
-				action: 'myOtherFunction'
+				action: myOtherFunction
 			}
 		]
 	};
@@ -41,12 +41,12 @@ Then create your kendo grid and the drop down box should be good to go assuming 
 			{
 				title: "popup",
 				field: "popupPermission",
-				action: 'myPopFunction'
+				action: myPopFunction
 			},
 			{
 				title: "something else",
 				field: "somethingElsePermission",
-				action: 'myOtherFunction'
+				action: myOtherFunction
 			}
 		]
 	};
