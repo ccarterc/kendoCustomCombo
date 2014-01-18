@@ -84,7 +84,7 @@
 					}
 				]
 			};
-			CustomActionBox.init(customActionConfig);
+			columnsettings = CustomActionBox.init(customActionConfig, columnsettings);
 			KAPI.grid.create('grid', PAPI.kapiConfig.grid, PAPI.kapiConfig.dataSource);
 			KAPI.grid.setData(0, products);
 			KAPI.grid.get(0).gridConfig.columns = columnsettings;

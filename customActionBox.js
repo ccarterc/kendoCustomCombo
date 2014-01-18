@@ -13,7 +13,7 @@ var CustomActionBox = (function(CAB){
 		{key: "filterable",	value: false},
 		{key: "sortable",	value: false},
 		{key: "encoded",	value: false},
-		{key: "template",	value: "<div class='dropDownSelectorDiv#:CustomActionBox.checkForOptions(kendo.toString(uid))#' data-record-id='#=uniqueId#' style='position:relative;'>Action:<span unselectable='on' class='pull-right k-icon k-i-arrow-s'></span></div>"}
+		{key: "template",	value: "<div class='dropDownSelectorDiv#:CustomActionBox.checkForOptions(kendo.toString(uid))#' data-record-id='#=ProductID#' style='position:relative;'>Action:<span unselectable='on' class='pull-right k-icon k-i-arrow-s'></span></div>"}
 	];
 
 	CAB.init = function(customActionConfig, columnsettings){
