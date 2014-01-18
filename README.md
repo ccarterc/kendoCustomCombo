@@ -7,12 +7,12 @@ An alternative to the Kendo Dropdown List
 Kendo UI, jQuery
 
 # What is it for?
-You may need a custom drop down box for your Kendo Grid.  This plugin allows you to provide a set of options within that drop down box.  Some of your Kendo Grid rows may need a set of options based on conditions within the data for each particular record.  This plugin has got you covered!
+You may need a custom drop down box for your Kendo Grid.  This plugin allows you to provide a set of options within that drop down box.  The options in this dropbox are not like normal drop down boxes as each option performs some kind of action.  Some of your Kendo Grid rows may need a set of options based on conditions within the data for each particular record.  This plugin has got you covered!
 
 #To get started:
 Make sure you've included jQuery and Kendo UI css/js.  CDN links listed in sample.html.
 
-Simply instantiate the custom combo box by calling the init() and passing a config object.  You can keep it basic or you can pass in additional paramters to override the defaults.
+Simply instantiate the custom combo box by calling the init() and passing a config object before creating your Kendo Grid.  You can keep it basic or you can pass in additional paramters to override the defaults.
 
 ```
 	var customActionConfig = {
@@ -29,7 +29,7 @@ Simply instantiate the custom combo box by calling the init() and passing a conf
 			}
 		]
 	};
-	CustomActionBox.init(customActionConfig);
+	columnSettings = CustomActionBox.init(customActionConfig, columnSettings);
 ```
 
 Then create your kendo grid and the drop down box should be good to go assuming you have fields in your Kendo Datasource which match those listed in the dropOptions object and are equal to true/false.  If you do not want to use the permission system, no problem!  Just turn it off by setting the permissionSystem to false:
@@ -50,7 +50,7 @@ Then create your kendo grid and the drop down box should be good to go assuming 
 			}
 		]
 	};
-	CustomActionBox.init(customActionConfig);
+	columnSettings = CustomActionBox.init(customActionConfig, columnSettings);
 ```
 
 
